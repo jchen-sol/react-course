@@ -18,8 +18,7 @@ export default class Loading extends React.Component
         this.interval = window.setInterval(() => {
             this.state.content === ('Loading' + '...')
                 ? this.setState({content: 'Loading'})
-                : this.setState(({ content }) => { content: (content + '.')})
-            console.log('Here...')
+                : this.setState(({ content }) => { return { content: (content + '.')}})
         }, intervalMs)
     }
 

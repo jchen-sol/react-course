@@ -84,7 +84,7 @@ export default class Results extends React.Component
 
         if (loading === true)
         {
-            return <Loading intervalMs={100} />
+            return <Loading intervalMs={300} />
         }
 
         if (error)
