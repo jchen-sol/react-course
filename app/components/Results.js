@@ -4,9 +4,35 @@ import {FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaCode, FaUser} from 're
 import Card from './Card'
 import PropTypes from 'prop-types'
 import Loading from './Loading'
+import Tooltip from './Tooltip'
 
-function ProfileList({profile})
+const styles = {
+    container: {
+      position: 'relative',
+      display: 'flex'
+    },
+    tooltip: {
+      boxSizing: 'border-box',
+      position: 'absolute',
+      width: '160px',
+      bottom: '100%',
+      left: '50%',
+      marginLeft: '-80px',
+      borderRadius: '3px',
+      backgroundColor: 'hsla(0, 0%, 20%, 0.9)',
+      padding: '7px',
+      marginBottom: '5px',
+      color: '#fff',
+      textAlign: 'center',
+      fontSize: '14px',
+    }
+  }
+
+
+function ProfileList(props)
 {
+    const {profile} = props
+
     return (
         <ul className='card-list'>
             {profile.name && (
@@ -17,14 +43,19 @@ function ProfileList({profile})
             )}
             {profile.location && (
                 <li>
-                    <FaCompass color='rgb(144, 116, 255)' size={22} />
-                    {profile.location}
+                    <Tooltip text="User's location">
+                        <FaCompass color='rgb(144, 116, 255)' size={22} />
+                        {profile.location}
+                    </Tooltip>
                 </li>
             )}
             {profile.company && (
                 <li>
-                    <FaBriefcase color='#795548' size={22} />
-                    {profile.company}
+                    <Tooltip text="User's company">
+                        <FaBriefcase color='#795548' size={22} />
+                        {profile.company}
+                    </Tooltip>
+                    
                 </li>
             )}
             <li>
@@ -84,7 +115,7 @@ export default class Results extends React.Component
 
         if (loading === true)
         {
-            return <Loading intervalMs={300} />
+            return <Loading text='Loading' intervalMs={300} />
         }
 
         if (error)
