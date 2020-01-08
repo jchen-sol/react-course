@@ -219,6 +219,18 @@ text-decoration: none;
 max-width: 200px;
 }
 
+.light-btn
+{
+    color: #000;
+    background: #aaa8a8;
+}
+
+.light-btn:disabled
+{
+    color: #292929;
+    background: #4a4a4a;
+}
+
 .dark-btn {
 color: #e6e6e6;
 background: #141414;
@@ -274,3 +286,14 @@ color: #c7c7c7;
     min-height: 100%;
 }
 
+.bg-dark
+{
+    background: rgb(36, 40, 42);
+    border-radius: 3px;
+}
+
+.player-inputs .input-dark
+{
+    color: #DADADA;
+    background: rgba(0,0,0.3) ;
+}
