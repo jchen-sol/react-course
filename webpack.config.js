@@ -23,7 +23,7 @@ module.exports = {
             }
         ),
         new CopyPlugin([{
-            from: '_redirects'
+            from: 'app/_redirects'
         }])
     ],
 
