@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import Loading from './Loading'
 import Tooltip from './Tooltip'
 import queryString from 'query-string'
+import {Link} from 'react-router-dom'
 
 const styles = {
     container: {
