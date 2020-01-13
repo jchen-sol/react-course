@@ -7,7 +7,7 @@ export default function Card({ header, subheader,
 {
     return (
         <ThemeConsumer>
-            {({theme}) => (
+            {(theme) => (
                 <div className={`card bg-${theme}`}>
                     <h4 className='header-lg center-text'>
                         {header}
