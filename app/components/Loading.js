@@ -10,8 +10,37 @@ const styles = {
       marginTop: '20px',
       textAlign: 'center',
     }
-  }
+}
 
+export default function Loading ({text = 'Loading', intervalMs = 300})
+{
+    const [content, setContent] = React.useState(text)
+    React.useEffect(() => {
+        const id = window.setInterval(() => {
+            setContent((oldContent) => {
+                return oldContent === `${text}...` ?
+                    (text) :
+                    `${oldContent}.`
+                }
+            )
+        }, intervalMs)
+
+        return (() => window.clearInterval(id))
+    }, [text, intervalMs])
+
+    return (
+        <p style={styles.content}>
+            {content}
+        </p>
+    )
+}
+
+Loading.propTypes = {
+    text: PropTypes.string,
+    intervalMs: PropTypes.number
+}
+
+/*
 export default class Loading extends React.Component
 {
     state = {
@@ -49,7 +78,5 @@ Loading.defaultProps = {
     intervalMs: 300
 }
 
-Loading.propTypes = {
-    text: PropTypes.string.isRequired,
-    intervalMs: PropTypes.number
-}
+
+*/
